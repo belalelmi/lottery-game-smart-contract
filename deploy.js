@@ -1,12 +1,11 @@
+require('dotenv').config()
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { interface, bytecode } = require('./compile');
 
 const provider = new HDWalletProvider(
-  'MNEMONIC',
-  // going to enter mnemonic value here later 
-  'RINKEBY TEST ENDPOINT'
-  // going to enter endpoint here later 
+  process.env.MNEMONIC,
+  process.env.RINKEBY_TEST_ENDPOINT
 );
 const web3 = new Web3(provider);
 
